@@ -27,7 +27,7 @@
   "dependencies": { 
     "iron-icons": "PolymerElements/iron-icons#1.0.3",
     "paper-material": "PolymerElements/paper-material#1.0.2",
-    "t-shared-components": "atomproject/t-shared-components#0.0.0", 
+    "t-shared-components": "atomelements/t-shared-components#0.0.0", 
     "polymer": "Polymer/polymer#^1.0.0"
   },
   "devDependencies": {
