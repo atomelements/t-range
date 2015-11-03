@@ -1,6 +1,7 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../paper-material/paper-material.html">
+<link rel="import" href="../iron-flex-layout/classes/iron-flex-layout.html">
 <link rel="import" href="../t-shared-components/jquery.html">
 <link rel="import" href="range-dependency.html">
 <!--
@@ -202,7 +203,15 @@ Example:
         :host::content [disabled] .noUi-handle {
             cursor: not-allowed;
         }
+        
+        .reading {
+            padding-bottom: 15px;
+        }
         </style>
+        <div class="horizontal layout reading">
+            <div class="flex">[[from]]</div>
+            <div>[[to]]</div>
+        </div>
         <div id="range"></div>
     </template>
 </dom-module>
@@ -211,11 +220,10 @@ Polymer({
 
     is: 't-range',
 
-    giproperties: {
+    properties: {
 
         from: {
             type: Number,
-            reflectToAttribute: true,
             notify: true,
             observer: '_minChanged'
         },
@@ -227,7 +235,6 @@ Polymer({
 
         to: {
             type: Number,
-            reflectToAttribute: true,
             notify: true,
             observer: '_maxChanged'
         },
@@ -280,7 +287,7 @@ Polymer({
             }
         });
 
-         this.$.range.noUiSlider.on('set', function ( values, handle ) {
+        this.$.range.noUiSlider.on('set', function(values, handle) {
             rangeElement.fire('range-change');
         });
 
