@@ -281,16 +281,20 @@ Example:
         },
 
         _formatDate: function (value) {
-            value = new Date(parseInt(value));
+
+            var cDate = new Date();
+            cDate.setTime(value);
+            var date = new Date(cDate.getTime() + (cDate.getTimezoneOffset() * 60000));
+            //date.setTime(parseInt(value));
             var formattedTime = '';
-            if (value.getHours() < 10) {
+            if (date.getHours() < 10) {
                 formattedTime = '0' + formattedTime; 
             }
-            formattedTime = formattedTime +value.getHours() + ':';
-            if (value.getMinutes() < 10) {
+            formattedTime = formattedTime + date.getHours() + ':';
+            if (date.getMinutes() < 10) {
                 formattedTime = formattedTime + '0';
             }
-            formattedTime = formattedTime + value.getMinutes();
+            formattedTime = formattedTime + date.getMinutes();
             return formattedTime;
         },
 
