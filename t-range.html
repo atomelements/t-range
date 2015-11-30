@@ -233,7 +233,7 @@ Example:
 
             noLabel: {
                 type: Boolean,
-                value:true
+                value: true
             },
 
             editable: {
@@ -285,18 +285,26 @@ Example:
                     return this._formatDate(value);
                 case 'number':
                     return parseInt(value);
-                }
+            }
         },
 
-        _formatDate: function (value) {
+        _formatDate: function (time) {
 
-            var cDate = new Date();
-            cDate.setTime(value);
-            var date = new Date(cDate.getTime() + (cDate.getTimezoneOffset() * 60000));
+            var epochTime =((time * 10000) + 621355968000000000);
+            var epochTicks = 621355968000000000; // the number of .net ticks at the unix epoch
+            var ticksPerMillisecond = 10000; // there are 10000 .net ticks per millisecond
+
+            var dateTime = (epochTime - epochTicks) / ticksPerMillisecond;
+            var date = new Date();
+            date.setTime(dateTime);
+
+            // var cDate = new Date();
+            // cDate.setTime(value);
+            // var date = new Date(cDate.getTime() + (cDate.getTimezoneOffset() * 60000));
             //date.setTime(parseInt(value));
             var formattedTime = '';
             if (date.getHours() < 10) {
-                formattedTime = '0' + formattedTime; 
+                formattedTime = '0' + formattedTime;
             }
             formattedTime = formattedTime + date.getHours() + ':';
             if (date.getMinutes() < 10) {
@@ -324,7 +332,7 @@ Example:
                     'min': parseInt(this.min),
                     'max': parseInt(this.max)
                 }
-            },true);
+            }, true);
 
             this.$.range.noUiSlider.on('update', function (values, handle) {
                 if (handle) {
