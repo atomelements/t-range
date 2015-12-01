@@ -301,7 +301,8 @@ Example:
                 formattedTime = formattedTime + '0';
             }
             formattedTime = formattedTime + date.getMinutes();
-            return formattedTime;
+            var day = date.toDateString().substr(0,3);
+            return day + ', '+formattedTime;
         },
 
         _initiate: function () {
