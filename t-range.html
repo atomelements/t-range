@@ -16,151 +16,151 @@ Example:
     <!-- <link rel="import" type="css" href="nouislider.pips.css"> -->
     <template>
         <style>
-            /* Functional styling;
+        /* Functional styling;
  * These styles are required for noUiSlider to function.
  * You don't need to change these rules to apply your design.
  */
-
-            :host {
-                display: block;
-                width: 90%;
-                margin: 0 auto;
-            }
-
-            .noUi-target,
-            .noUi-target * {
-                -webkit-touch-callout: none;
-                -webkit-user-select: none;
-                -ms-touch-action: none;
-                -ms-user-select: none;
-                -moz-user-select: none;
-                -moz-box-sizing: border-box;
-                box-sizing: border-box;
-            }
-
-            :host::content .noUi-target {
-                position: relative;
-                direction: ltr;
-            }
-
-            :host::content .noUi-base {
-                width: 100%;
-                height: 100%;
-                position: relative;
-                z-index: 1;
-                /* Fix 401 */
-            }
-
-            :host::content .noUi-origin {
-                position: absolute;
-                right: 0;
-                top: 0;
-                left: 0;
-                bottom: 0;
-            }
-
-            :host::content .noUi-handle {
-                position: relative;
-                z-index: 1;
-            }
-
-            :host::content .noUi-stacking .noUi-handle {
-                /* This class is applied to the lower origin when
+        
+        :host {
+            display: block;
+            width: 90%;
+            margin: 0 auto;
+        }
+        
+        .noUi-target,
+        .noUi-target * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -ms-touch-action: none;
+            -ms-user-select: none;
+            -moz-user-select: none;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        
+        :host::content .noUi-target {
+            position: relative;
+            direction: ltr;
+        }
+        
+        :host::content .noUi-base {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 1;
+            /* Fix 401 */
+        }
+        
+        :host::content .noUi-origin {
+            position: absolute;
+            right: 0;
+            top: 0;
+            left: 0;
+            bottom: 0;
+        }
+        
+        :host::content .noUi-handle {
+            position: relative;
+            z-index: 1;
+        }
+        
+        :host::content .noUi-stacking .noUi-handle {
+            /* This class is applied to the lower origin when
    its values is > 50%. */
-                z-index: 10;
-            }
-
-            :host::content .noUi-state-tap .noUi-origin {
-                -webkit-transition: left 0.3s, top 0.3s;
-                transition: left 0.3s, top 0.3s;
-            }
-
-            :host::content .noUi-state-drag * {
-                cursor: inherit !important;
-            }
-            /* Painting and performance;
+            z-index: 10;
+        }
+        
+        :host::content .noUi-state-tap .noUi-origin {
+            -webkit-transition: left 0.3s, top 0.3s;
+            transition: left 0.3s, top 0.3s;
+        }
+        
+        :host::content .noUi-state-drag * {
+            cursor: inherit !important;
+        }
+        /* Painting and performance;
  * Browsers can paint handles in their own layer.
  */
-
-            :host::content .noUi-base {
-                -webkit-transform: translate3d(0, 0, 0);
-                transform: translate3d(0, 0, 0);
-            }
-            /* Slider size and handle placement;
+        
+        :host::content .noUi-base {
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+        /* Slider size and handle placement;
  */
-
-            :host::content .noUi-horizontal {
-                height: 2px;
-            }
-
-                :host::content .noUi-horizontal .noUi-handle {
-                    width: 24px;
-                    height: 24px;
-                    left: -12px;
-                    top: -12px;
-                }
-
-            :host::content .noUi-vertical {
-                width: 18px;
-            }
-
-                :host::content .noUi-vertical .noUi-handle {
-                    width: 28px;
-                    height: 34px;
-                    left: -6px;
-                    top: -17px;
-                }
-            /* Styling;
+        
+        :host::content .noUi-horizontal {
+            height: 2px;
+        }
+        
+        :host::content .noUi-horizontal .noUi-handle {
+            width: 24px;
+            height: 24px;
+            left: -12px;
+            top: -12px;
+        }
+        
+        :host::content .noUi-vertical {
+            width: 18px;
+        }
+        
+        :host::content .noUi-vertical .noUi-handle {
+            width: 28px;
+            height: 34px;
+            left: -6px;
+            top: -17px;
+        }
+        /* Styling;
  */
-
-            :host::content .noUi-background {
-                background: #FAFAFA;
-                box-shadow: inset 0 1px 1px #f0f0f0;
-            }
-
-            :host::content .noUi-connect {
-                background: var(--default-primary-color, #07c5f2);
-                box-shadow: inset 0 0 3px rgba(51, 51, 51, 0.45);
-                -webkit-transition: background 450ms;
-                transition: background 450ms;
-            }
-
-            :host::content .noUi-origin {
-                border-radius: 2px;
-            }
-
-            :host::content .noUi-target {
-                border-radius: 2px;
-            }
-
-                :host::content .noUi-target.noUi-connect {
-                    box-shadow: inset 0 0 3px rgba(51, 51, 51, 0.45), 0 3px 6px -5px #BBB;
-                }
-            /* Handles and cursors;
+        
+        :host::content .noUi-background {
+            background: #FAFAFA;
+            box-shadow: inset 0 1px 1px #f0f0f0;
+        }
+        
+        :host::content .noUi-connect {
+            background: var(--default-primary-color, #07c5f2);
+            box-shadow: inset 0 0 3px rgba(51, 51, 51, 0.45);
+            -webkit-transition: background 450ms;
+            transition: background 450ms;
+        }
+        
+        :host::content .noUi-origin {
+            border-radius: 2px;
+        }
+        
+        :host::content .noUi-target {
+            border-radius: 2px;
+        }
+        
+        :host::content .noUi-target.noUi-connect {
+            box-shadow: inset 0 0 3px rgba(51, 51, 51, 0.45), 0 3px 6px -5px #BBB;
+        }
+        /* Handles and cursors;
  */
-
-            :host::content .noUi-dragable {
-                cursor: w-resize;
-            }
-
-            :host::content .noUi-vertical .noUi-dragable {
-                cursor: n-resize;
-            }
-
-            :host::content .noUi-handle {
-                border-radius: 50%;
-                background: var(--default-primary-color, #07c5f2);
-                cursor: default;
-            }
-
-            :host::content .noUi-active {
-                -ms-transform: scale(1.5);
-                /* IE 9 */
-                -webkit-transform: scale(1.5);
-                /* Safari */
-                transform: scale(1.5);
-            }
-            /* Handle stripes;
+        
+        :host::content .noUi-dragable {
+            cursor: w-resize;
+        }
+        
+        :host::content .noUi-vertical .noUi-dragable {
+            cursor: n-resize;
+        }
+        
+        :host::content .noUi-handle {
+            border-radius: 50%;
+            background: var(--default-primary-color, #07c5f2);
+            cursor: default;
+        }
+        
+        :host::content .noUi-active {
+            -ms-transform: scale(1.5);
+            /* IE 9 */
+            -webkit-transform: scale(1.5);
+            /* Safari */
+            transform: scale(1.5);
+        }
+        /* Handle stripes;
 :host ::content .noUi-handle:before,
 
 :host ::content .noUi-handle:after {
@@ -191,22 +191,22 @@ Example:
     top: 17px;
 }
  */
-            /* Disabled state;
+        /* Disabled state;
  */
-
-            :host::content [disabled].noUi-connect,
-            :host::content [disabled] .noUi-connect {
-                background: #B8B8B8;
-            }
-
-            :host::content [disabled].noUi-origin,
-            :host::content [disabled] .noUi-handle {
-                cursor: not-allowed;
-            }
-
-            .reading {
-                padding-bottom: 15px;
-            }
+        
+        :host::content [disabled].noUi-connect,
+        :host::content [disabled] .noUi-connect {
+            background: #B8B8B8;
+        }
+        
+        :host::content [disabled].noUi-origin,
+        :host::content [disabled] .noUi-handle {
+            cursor: not-allowed;
+        }
+        
+        .reading {
+            padding-bottom: 15px;
+        }
         </style>
         <div hidden$="[[noLabel]]">[[label]]</div>
         <div class="horizontal layout reading">
@@ -234,6 +234,11 @@ Example:
             noLabel: {
                 type: Boolean,
                 value: true
+            },
+
+            showTwelveHourClock: {
+                type: Boolean,
+                value: false
             },
 
             editable: {
@@ -289,20 +294,43 @@ Example:
         },
 
         _formatDate: function (time) {
-
             var date = new Date(parseInt(time));
+            var day = date.toDateString().substr(0, 3);
+            return day + ', ' + this._getTime(date);
+        },
 
+        _getTime: function (date) {
             var formattedTime = '';
-            if (date.getHours() < 10) {
-                formattedTime = '0' + formattedTime;
+            var hours = date.getHours();
+            if (hours < 10) {
+                if (hours === 0 && this.showTwelveHourClock)
+                    formattedTime = '12';
+                else
+                    formattedTime = '0' + formattedTime + hours;
             }
-            formattedTime = formattedTime + date.getHours() + ':';
+            else {
+                if (hours > 12 && this.showTwelveHourClock) {
+                    hours = hours - 12;
+                    formattedTime = hours.toString();
+                }
+                else {
+                    formattedTime = formattedTime + hours;
+                }
+            }
+            formattedTime = formattedTime + ':';
             if (date.getMinutes() < 10) {
                 formattedTime = formattedTime + '0';
             }
             formattedTime = formattedTime + date.getMinutes();
-            var day = date.toDateString().substr(0,3);
-            return day + ', '+formattedTime;
+            if (this.showTwelveHourClock) {
+
+                if (hours >= 12)
+                    formattedTime = formattedTime + " PM";
+                else
+                    formattedTime = formattedTime + " AM";
+            }
+
+            return formattedTime;
         },
 
         _initiate: function () {
