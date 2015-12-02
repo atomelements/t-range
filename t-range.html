@@ -324,7 +324,7 @@ Example:
             formattedTime = formattedTime + date.getMinutes();
             if (this.showTwelveHourClock) {
 
-                if (hours >= 12)
+                if (date.getHours() >= 12)
                     formattedTime = formattedTime + " PM";
                 else
                     formattedTime = formattedTime + " AM";
