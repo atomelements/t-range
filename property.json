@@ -1,0 +1,23 @@
+{
+    "name": "Button",
+    "properties": [{
+        "name": "Properties",
+        "fields": {
+            "editable": {
+                "name": "Editable",
+                "type": "boolean",
+                "value": false
+            },
+            "noLabel": {
+                "name": "Show Label",
+                "type": "boolean",
+                "value": false
+            },
+            "label": {
+                "name": "Label",
+                "type": "string",
+                "value": "Range"
+            }
+        }
+    }]
+}
