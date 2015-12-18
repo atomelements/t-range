@@ -9,7 +9,7 @@
                 "value": false
             },
             "noLabel": {
-                "name": "Show Label",
+                "name": "Hide Label",
                 "type": "boolean",
                 "value": false
             },
