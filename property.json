@@ -3,11 +3,6 @@
     "properties": [{
         "name": "Properties",
         "fields": {
-            "editable": {
-                "name": "Editable",
-                "type": "boolean",
-                "value": false
-            },
             "noLabel": {
                 "name": "Hide Label",
                 "type": "boolean",
